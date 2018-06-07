@@ -1,6 +1,7 @@
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 // The Java class will be hosted at the URI path "/helloworld"
 @Path("/index")
@@ -21,12 +22,12 @@ public class Services {
 
     @GET
     @Produces("application/json")
-    public String getEquipos() {
+    public Equipo getEquipos() {
         // Return some cliched textual content
         Equipo equipo1 = this.testService.recuperarEntidad(Equipo.class, "Argentina");
         Equipo equipo2 = this.testService.recuperarEntidad(Equipo.class, "Islandia");
 //        Equipo equipo3 = this.testService.recuperarEntidad(Equipo.class, "Croacia");
-        return equipo1.getNombre() +"\n"+ equipo2.getNombre();
+        return equipo1;
 
     }
 
